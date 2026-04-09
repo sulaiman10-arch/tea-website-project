@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            width: 1500px;
+            position: relative;
+            background-color:rgb(243 234 217);
+        }
+        .audio .bttn{
+            border: none;
+            background-color: transparent;
+            position: absolute;
+            margin-left: 1400px;
+            margin-top: -115px;
+        }
+        .audio .bttn img{
+            width: 50px;
+            height: 50px;
+            margin-left: 0px;
+            margin-top: -15px;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/0.封面.css">
+    <link rel="stylesheet" href="./css/1.上导航栏.css">
+    <link rel="stylesheet" href="./css/2.轮播图.css">
+    <link rel="stylesheet" href="./css/3.奶茶菜单.css">
+    <link rel="stylesheet" href="./css/4.视频部分.css">
+    <link rel="stylesheet" href="./css/5.以茶会友.css">
+    <link rel="stylesheet" href="./css/6.底部.css">
+    <link rel="stylesheet" href="./css/7.下导航栏.css">
+</head>
+<body>
+    <!-- 封面部分 -->
+    <div class="fm">
+        <img src="./images/背景/index.jpg" alt="">
+        <h1>霸王茶姬</h1>
+    </div>
+    <!-- 上导航栏部分 -->
+    <div class="Navigation-bar">
+        <img src="./images/导航栏/霸王茶姬.png" alt="">
+        <p>
+            <a href="./2.登录.html" target="_blank"><span>登陆注册</span></a>
+            <a href="./3.index.html"><span>网站首页</span></a>
+            <a href="./4.热品推荐.html" target="_blank"><span>热品推荐</span></a>
+            <a href=""><span>点单加购</span></a>
+            <a href=""><span>联系我们</span></a>
+        </p>
+        <input type="text" placeholder="请输入关键词..." >
+        <button>搜索</button>
+        <div class="audio">
+            <button class="bttn">
+                <img src="./images/封面/菜单.png" alt="">
+            </button>
+            <audio src="./audio/窝窝+-+你大胆走.flac" id="myAudio"></audio>
+            <script>
+                var btn=document.querySelector('.bttn')
+                var myAudio=document.querySelector('#myAudio')
+                btn.addEventListener('click',function(){
+                    if(myAudio.paused){
+                        myAudio.play()
+                    }else{
+                        myAudio.pause()
+                    }
+                })
+            </script>
+        </div>
+    </div>
+    <!-- 轮播图部分 -->
+    <div class="carousel">
+        <div class="slides">
+            <img src="./images/轮播图/滑板.jpeg">
+            <img src="./images/轮播图/遛狗.jpeg">
+            <img src="./images/轮播图/门店.jpeg">
+            <img src="./images/轮播图/舞蹈.jpeg">
+            <img src="./images/轮播图/瑜伽.jpeg">
+        </div>
+        <div class="buttons">
+            <button data-index="0">1</button>
+            <button data-index="1">2</button>
+            <button data-index="2">3</button>
+            <button data-index="3">4</button>
+            <button data-index="4">5</button>
+        </div>
+        <div class="slide-left"><svg t="1731398663229" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4982" width="32" height="32"><path d="M769.137778 153.372444L444.984889 512l324.152889 358.684444c36.408889 35.043556 36.408889 91.989333 0 126.976a95.744 95.744 0 0 1-131.868445 0l-377.571555-417.678222c-1.536-1.365333-3.584-1.877333-5.063111-3.299555A87.438222 87.438222 0 0 1 227.555556 512c-0.341333-23.324444 8.533333-46.876444 27.079111-64.739556 1.479111-1.422222 3.527111-1.934222 5.063111-3.185777L637.269333 26.339556a95.744 95.744 0 0 1 131.868445 0c36.408889 35.043556 36.408889 91.932444 0 127.032888z" fill="#1296db" p-id="4983"></path></svg></div>
+        <div class="slide-right"><svg t="1731398710015" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5386" width="32" height="32"><path d="M769.344174 576.738215c-1.47899 1.422105-3.469937 1.877179-5.062695 3.2424l-377.540513 417.700767a95.736128 95.736128 0 0 1-131.857603 0 87.487918 87.487918 0 0 1 0-127.022445L579.009601 512.003982 254.883363 153.349027a87.374149 87.374149 0 0 1 0-126.965561 95.62236 95.62236 0 0 1 131.857603 0l377.540513 417.700767c1.535874 1.308337 3.583705 1.820295 5.062695 3.2424 18.544253 17.861642 27.475074 41.297938 27.076885 64.677349 0.398189 23.379411-8.532632 46.87259-27.076885 64.734233z" fill="#1296db" p-id="5387"></path></svg></div>
+    </div>
+    <script >
+        // 这是当前显示的幻灯片的索引（从 0 开始）。
+        var currentSlide = 0;
+        var slides = document.querySelector('.slides');
+        var totalSlides = document.querySelectorAll('.slides img').length;
+        // 使用 querySelectorAll('.buttons button') 查找所有位于 .buttons 类容器内的 <button> 按钮元素，返回的是一个 NodeList（类似数组）。这些按钮用于控制幻灯片的切换。
+        var buttons = document.querySelectorAll('.buttons button');
+        //获取左箭头
+        var slide_left=document.querySelector('.slide-left')
+        //获取右箭头
+        var slide_right=document.querySelector('.slide-right')
+        var intervalId;
+       function showSlide(index) {
+        // 更新 currentSlide 变量
+       currentSlide = index;
+       // 计算幻灯片的偏移量,通过 transform: translateX 来移动幻灯片。
+       var offset = -index * 1305;
+       slides.style.transform = `translateX(${offset}px)`;
+       // 更新按钮的 active 类
+       buttons.forEach(button => button.classList.remove('active'));
+       // if对应的情况-如果当前的 index 大于或等于总幻灯片数（比如，自动播放时从最后一张跳回第一张），则将第一个按钮标记为 active。
+       if (index >= totalSlides) {
+           buttons[0].classList.add('active');
+   
+       }// else-if对应的情况-如果 index 小于 0，表示幻灯片已经回到最后一张（类似循环），则将最后一个按钮标记为 active
+       else if (index < 0) {
+           buttons[totalSlides - 1].classList.add('active');
+       } // else对应的情况-如果 index 在正常范围内，直接给对应的按钮（与 index 相同的按钮）添加 active 类，表示该按钮被选中。
+       else {
+           buttons[index].classList.add('active');
+       }
+   }
+   // 切换到下一张幻灯片函数nextSlide()
+   function nextSlide() {
+       currentSlide = (currentSlide + 1) % totalSlides;
+       showSlide(currentSlide);
+   }
+   //切换到上一张幻灯片函数prevSlide()
+   function prevSlide() {
+               currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+               showSlide(currentSlide);
+           }
+    // 启动自动切换幻灯片函数startAutoSlide()
+   function startAutoSlide() {
+    // 只启动定时器如果它没有启动
+       if (!intervalId) {
+           intervalId = setInterval(nextSlide, 5000);
+       }
+   }
+   // 停止自动切换幻灯片函数stopAutoSlide() 
+   function stopAutoSlide() {
+       clearInterval(intervalId);
+       // 清除定时器ID，防止多次清除
+       intervalId = null;
+   }
+   showSlide(currentSlide);
+   startAutoSlide();
+   // 绑定按钮点击事件
+   buttons.forEach(button => {
+       button.addEventListener('click', function () {
+           stopAutoSlide();
+           currentSlide = parseInt(this.getAttribute('data-index')); 
+           showSlide(currentSlide);//调用显示幻灯片函数
+           startAutoSlide(); // 重新启动定时器
+       });
+       button.addEventListener('mouseover', function () {
+           stopAutoSlide(); // 鼠标悬停时停止自动轮播
+           currentSlide = parseInt(this.getAttribute('data-index')); // 获取鼠标悬停按钮的索引
+           showSlide(currentSlide);//调用显示幻灯片函数
+       });
+       button.addEventListener('mouseleave', function () {
+           startAutoSlide(); // 鼠标离开时重新启动自动轮播
+       });
+   });
+   //点击左箭头切换到上一张
+   slide_left.addEventListener('click', function () {
+               stopAutoSlide();
+               prevSlide();
+               startAutoSlide();
+           });
+   //点击右箭头切换到下一张
+   slide_right.addEventListener('click', function () {
+               stopAutoSlide();
+               nextSlide();
+               startAutoSlide();
+           });
+    </script>
+    <!-- 奶茶菜单部分 -->
+    <div class="bwcj_title">
+        <div class="bwcj_h2">
+            <h2>奶茶菜单</h2>
+        </div>
+        <div class="bwcj_img">
+            <div class="bwcj_img1">
+                <a href="">
+                    <img src="./images/奶茶/伯牙绝弦.png" alt="">
+                    <p>伯牙绝弦</p>
+                    <span>查看详情</span>
+                </a>
+                </div>
+            <div class="bwcj_img1">
+                <a href="">
+                    <img src="./images/奶茶/清末观音.png" alt="">
+                    <p>清末观音</p>
+                    <span>查看详情</span>
+                </a>
+            </div>
+            <div class="bwcj_img1">
+                <a href="">
+                    <img src="./images/奶茶/去云南.png" alt="">
+                    <p>去云南</p>
+                    <span>查看详情</span>
+                </a>
+            </div>
+            <div class="bwcj_img1">
+                <a href="">
+                    <img src="./images/奶茶/桂馥兰香.png" alt="">
+                    <p>桂馥兰香</p>
+                    <span>查看详情</span>
+                </a>
+            </div>
+            <div class="bwcj_img1">
+                <a href="">
+                    <img src="./images/奶茶/葡萄碎玉.png" alt="">
+                    <p>葡萄碎玉</p>
+                    <span>查看详情</span>
+                </a>
+            </div>
+            <div class="bwcj_img1">
+                <a href="">
+                    <img src="./images/奶茶/青青糯山.png" alt="">
+                    <p>青青糯山</p>
+                    <span>查看详情</span>
+                </a>
+            </div>
+            <div class="bwcj_img1">
+                <a href="">
+                    <img src="./images/奶茶/桃花茉.png" alt="">
+                    <p>桃花茉</p>
+                    <span>查看详情</span>
+                </a>
+            </div>
+            <div class="bwcj_img1">
+                <a href="">
+                    <img src="./images/奶茶/七里香.png" alt="">
+                    <p>七里香</p>
+                    <span>查看详情</span>
+                </a>
+            </div>
+            <div class="bwcj_img1">
+                <a href="">
+                    <img src="./images/奶茶/东方冰茶.png" alt="">
+                    <p>东方冰茶</p>
+                    <span>查看详情</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- 视频部分 -->
+    <div class="video">
+        <div class="video_bwcj">
+            <img src="./images/背景/奶茶图标.png" alt="">
+        </div>
+        <div class="marquee_box">
+            <marquee>
+                <img src="./images/背景/letters.png" alt="">
+            </marquee>
+        </div>
+        <div class="video_box">
+            <video src="./vedio/以茶会友.mp4" controls poster="./images/封面/以茶会友封面.png" id="myVideo" autoplay muted loop></video>
+        </div>
+    </div>
+    <script>
+        var video_box=document.querySelector('.video_box')
+        var myVideo=document.querySelector('#myVideo')
+        video_box.addEventListener('click',function(){
+            if(myVideo.paused){
+                myVideo.play()
+            }else{
+                myVideo.pause()
+            }
+        })
+    </script>
+    <!-- 以茶会友部分 -->
+    <div class="about_bwcj">
+        <div class="about_box">
+            <img src="./images/背景/以茶会友.png" alt="">
+        </div>
+        <div class="about_box1">
+            <img src="./images/背景/indeex.jpg" alt="">
+            <div class="about_div"></div>
+        </div>
+        <div class="about_box2">
+            <div class="about_h">
+                <h1>
+                    一亿+杯「伯牙绝弦」<br>
+                    一亿+次「以茶会友」
+                </h1>
+            </div>
+            <div class="about_span">
+                <span>
+                    茶，南方之嘉木也
+                </span>
+                <span>
+                    茶，人在草木之间也
+                </span>
+                <span>
+                    纵横万里，茶是会流动的文明。这片香气昂扬的叶子漂洋过海，辗转过不同肤色、不同文化的国度，成为一种通行的语言，成为了东方的符号。
+                    传承干年，茶是有生机的历史。煮、煎、点、泡、萃，每个时代都有新的制茶之艺、爱茶之人，茶的可能性，在千百位能工巧匠的手中被激活。
+                    茶的意蕴，在无数位风流人物的口中被吟诵。茶改变着人们的生活方式，人们也在改变着茶的历史形态。
+                </span>
+                <span>
+                    一杯「伯牙绝弦」，成为了更多年轻人在这个时代对的选择。一杯当代的东方好茶，就在这杯清爽不腻的「伯牙绝弦」中萌芽。一年卖出一亿+杯的「伯牙绝弦」，无法再被独独署名霸王茶姬。那不仅仅是一亿杯嗅得到、品得出的好茶，也是一亿份陪伴，一亿次温度的传递，一亿次真心换真心，一亿句“走吧，我们去喝茶”，更是霸王茶姬与一亿位茶友的久别重逢。
+                </span>
+            </div>
+            <div class="about_btn">
+                <a href="">
+                    <button>霸王茶姬</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- 底部部分 -->
+    <div class="bwcj-bottom">
+        <span>四川茶姬企业管理有限公司 ©CHAGEE, All Rights Reserved .</span>
+        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">
+            <span>蜀ICP备2022004555号-4</span>
+        </a>
+        <a href="https://chagee.com.my/" target="_blank">
+            <span>·海外官网</span>
+        </a>
+        <a href="https://www.shuwon.com/" target="_blank">
+            <span>·SITE BY SHUWON</span>
+        </a>
+    </div>
+    <!-- 下导航栏部分 -->
+    <a href="https://www.chagee.com/" target="_blank">
+        <div class="Navigation-xia">
+            <div class="Navigation-img1">
+                <img src="./images/导航栏/霸王茶姬.png" alt="">
+            </div>
+            <div class="Navigation-img2">
+                <img src="./images/导航栏/电话.png" alt="">
+                <h1>霸王茶姬官方服务热线&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;8788&nbsp;&nbsp;359</h1>
+            </div>
+        </div>
+    </a>
+</body>
+</html>

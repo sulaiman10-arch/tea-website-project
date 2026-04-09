@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>热品推荐</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            width: 1500px;
+            position: relative;
+            background-color:rgb(243 234 217);
+        }
+    </style>
+    <link rel="stylesheet" href="./css/1.上导航栏.css">
+    <link rel="stylesheet" href="./css/8.热品推荐.css">
+    <link rel="stylesheet" href="./css/9.底部2.css">
+    <link rel="stylesheet" href="./css/10.下导航栏2.css">
+    <link rel="stylesheet" href="./css/11.封面视频.css">
+</head>
+<body>
+    <!-- 封面部分 -->
+    <div class="video_box">
+        <video src="./vedio/霸王茶姬封面.mp4" poster="" id="myVideo" autoplay muted loop></video>
+    </div>
+    <script>
+        var video_box=document.querySelector('.video_box')
+        var myVideo=document.querySelector('#myVideo')
+        video_box.addEventListener('click',function(){
+            if(myVideo.paused){
+                myVideo.play()
+            }else{
+                myVideo.pause()
+            }
+        })
+    </script>
+    <!-- 文字飘动 -->
+    <div class="marquee_box">
+        <img src="./images/封面/letter-s.png" alt="" style="width: 1000px;margin-left: 300px;margin-top: -140px;">
+    </div>
+    <!-- 上导航栏部分 -->
+    <div class="Navigation-bar">
+        <img src="./images/导航栏/霸王茶姬.png" alt="">
+        <p>
+            <a href="./2.登录.html" target="_blank"><span>登陆注册</span></a>
+            <a href="./3.index.html"><span>网站首页</span></a>
+            <a href="./4.热品推荐.html" target="_blank"><span>热品推荐</span></a>
+            <a href=""><span>点单加购</span></a>
+            <a href=""><span>联系我们</span></a>
+        </p>
+        <input type="text" placeholder="请输入关键词..." >
+        <button>搜索</button>
+    </div>
+    <!-- 热品推荐 -->
+    <div class="Hot">
+        <div class="Hot_top">
+            <h1>热品推荐</h1>
+            <div class="Top_text">
+                <div class="Top_text1"></div>
+                <div class="Top_text2"></div>
+                <span>Hot Recommendations</span>
+            </div>
+        </div>
+        <div class="Hot_bottom">
+            <div class="Hot_bottom1">
+                <img src="./images/奶茶/伯牙绝弦.png" alt="">
+                <div class="bottom_text">
+                    <p style="font-weight: bold;">伯牙绝弦</p>
+                    <p>推荐指数：<img src="./images/奶茶/ico-星级档次.png" alt=""></p>
+                    <p style="color:rgb(65, 174, 2);">安全·好喝·轻负担</p>
+                    <p style="color: red;">累计销量:1650万杯</p>
+                </div>
+            </div>
+            <div class="Hot_bottom1">
+                <img src="./images/奶茶/桂馥兰香.png" alt="">
+                <div class="bottom_text">
+                    <p style="font-weight: bold;">桂馥兰香</p>
+                    <p>推荐指数：<img src="./images/奶茶/ico-星级档次.png" alt=""></p>
+                    <p style="color:rgb(65, 174, 2);">安全·好喝·轻负担</p>
+                    <p style="color: red;">累计销量:1530万杯</p>
+                </div>
+            </div>
+            <div class="Hot_bottom1">
+                <img src="./images/奶茶/青青糯山.png" alt="">
+                <div class="bottom_text">
+                    <p style="font-weight: bold;">青青糯山</p>
+                    <p>推荐指数：<img src="./images/奶茶/ico-星级档次.png" alt=""></p>
+                    <p style="color:rgb(65, 174, 2);">安全·好喝·轻负担</p>
+                    <p style="color: red;">累计销量:1770万杯</p>
+                </div>
+            </div>
+            <div class="Hot_bottom1">
+                <img src="./images/奶茶/去云南.png" alt="">
+                <div class="bottom_text">
+                    <p style="font-weight: bold;">去云南</p>
+                    <p>推荐指数：<img src="./images/奶茶/ico-星级档次.png" alt=""></p>
+                    <p style="color:rgb(65, 174, 2);">安全·好喝·轻负担</p>
+                    <p style="color: red;">累计销量:1870万杯</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 文字飘过 -->
+    <div class="marquee_box">
+        <marquee behavior="scroll" direction="right" scrollamount="5" loop="-1">
+            <img src="./images/背景/letters.png" alt="向右滚动图片">
+        </marquee>
+    </div>
+    <div class="marquee_box">
+        <marquee behavior="scroll" direction="left" scrollamount="6" loop="-1">
+            <img src="./images/背景/letters.png" alt="向左滚动图片">
+        </marquee>
+    </div>
+    <!-- 优惠推荐 -->
+    <div class="Preferential">
+        <div class="Preferential_top">
+            <h1 style="margin-left: 685px;">优惠推荐</h1>
+            <div class="Top1_text">
+                <div class="Top1_text1"></div>
+                <div class="Top1_text2"></div>
+                <span>Preferential activity</span>
+            </div>
+        </div>
+        <div class="Preferential_bottom">
+            <div class="Preferential_bottom1">
+                <img src="./images/奶茶/葡萄碎玉.png" alt="">
+                <div class="Preferential_text">
+                    <p style="color: white;font-size: 25px;">活动期间专享第二杯半价</p>
+                    <p style="margin-top: 50px;font-size: 15px;color: white;">活动优惠：活动期间购买本产品，第二杯可半价购买</p>
+                    <p style="margin-top: 50px;font-size: 13px;color: white;">活动时间:2024-2025</p>
+                </div>
+            </div>
+            <div class="Preferential_bottom1">
+                <img src="./images/奶茶/桃花茉.png" alt="">
+                <div class="Preferential_text">
+                    <p style="color: white;font-size: 25px;">活动期间专享买一送一</p>
+                    <p style="margin-top: 50px;font-size: 15px;color: white;">活动优惠：本店新品上市，活动期间购买本产品，则赠送本产品一杯</p>
+                    <p style="margin-top: 50px;font-size: 13px;color: white;">活动时间:2024-2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- 底部部分 -->
+        <div class="bwcj-bottom">
+            <span>四川茶姬企业管理有限公司 ©CHAGEE, All Rights Reserved .</span>
+            <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">
+                <span>蜀ICP备2022004555号-4</span>
+            </a>
+            <a href="https://chagee.com.my/" target="_blank">
+                <span>·海外官网</span>
+            </a>
+            <a href="https://www.shuwon.com/" target="_blank">
+                <span>·SITE BY SHUWON</span>
+            </a>
+        </div>
+    <!-- 下导航栏部分 -->
+    <a href="https://www.chagee.com/" target="_blank">
+        <div class="Navigation-xia">
+            <div class="Navigation-img1">
+                <img src="./images/导航栏/霸王茶姬.png" alt="">
+            </div>
+            <div class="Navigation-img2">
+                <img src="./images/导航栏/电话.png" alt="">
+                <h1>霸王茶姬官方服务热线&nbsp;&nbsp;&nbsp;400&nbsp;&nbsp;8788&nbsp;&nbsp;359</h1>
+            </div>
+        </div>
+    </a>
+</body>
+</html>

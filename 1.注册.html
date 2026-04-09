@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="./css/12.注册.css">
+</head>
+<body>
+    <div class="web"> 
+        <div class="dingb"> 
+            <div class="logo2">
+                <img src="./images/导航栏/霸王茶姬.png">
+            </div> 
+        </div> 
+        <div class="neir"> 
+            <div class="neir-left">
+                <img src="./images/背景/index_map.jpg">
+            </div> 
+            <div class="neir-right"> 
+                <div class="lewm"> 
+                    <div class="login"> 
+                        <div class="login-title">
+                            用户注册
+                        </div> 
+                        <form action="#" method="post"> 
+                            <div class="txt"> 
+                                <input class="input2" type="text" value="昵称/账号：">
+                            </div> 
+                            <div class="txt"> 
+                                <input class="input2" type="text" value="密码：">
+                            </div> 
+                            <div class="txt"> 
+                                <input class="input2" type="text" value="确认密码:" >
+                            </div> 
+                            <div class="txt"> 
+                                <input class="input2" type="text" value="绑定电话：">
+                            </div>
+                            <input type="button" value="立即注册" class="lbtn" onclick="zhuce()">
+                        </form> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+        <div class="footer"> 
+            <div class="link"> 
+                <a href="#">关于我们</a>
+                <a href="#">合作伙伴</a>
+                <a href="#">联系客服</a>
+                <a href="#">联系我们</a>
+                <a href="#">隐私权政策</a>
+                <a href="#">法律声明</a>
+                <a href="#">知识产权</a>
+                    |&nbsp;©CHAGEE, All Rights Reserved
+            </div>  
+       </div>
+    </div>
+</body>
+<script>
+    function zhuce() {
+        var name=document.querySelector("input[type='text']").value
+        //利用localS对象的setItem(key,value)方法存储数据；getItem()方法读取数据
+        localStorage.setItem("a",name)
+        // sessionStorage.setItem("a",name)
+        alert("注册成功！")
+        window.location.href = "2.登录.html";
+    }
+</script>
+</html>

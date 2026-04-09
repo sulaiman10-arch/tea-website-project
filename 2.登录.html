@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="./css/13.登录.css">
+</head>
+<body>
+    <div class="web"> 
+        <div class="dingb"> 
+            <div class="logo2">
+                <img src="./images/导航栏/霸王茶姬.png">
+            </div> 
+        </div> 
+        <div class="neir"> 
+            <div class="neir-left">
+                <img src="./images/背景/index_map.jpg">
+            </div> 
+            <div class="neir-right"> 
+                <div class="lewm"> 
+                    <div class="login"> 
+                        <div class="login-title">
+                            账户登陆
+                        </div> 
+                        <form action="#" method="post"> 
+                            <div class="txt"> 
+                                <div class="wez">
+                                    <img src="./images/背景/a_1.jpg" >
+                                </div> 
+                                <input class="input" value="" >
+                            </div> 
+                            <div class="txt"> 
+                                <div class="wez clv">
+                                    <img src="./images/背景/a_2.jpg" >
+                                </div> 
+                                <input class="input" value="" >
+                            </div> 
+                            <div class="passw"> 
+                                <div class="password">
+                                    <a href="#">忘记登录密码</a>
+                                </div> 
+                                <div class="zhuce">
+                                    <a href="./1.注册.html">免费注册</a>
+                                </div> 
+                            </div>
+                            <input type="button" value="登录" class="lbtn" onclick="login()">
+                            <div class="weib">
+                                <div class="weibo"> 
+                                    <img src="./images/背景/a_3.jpg">
+                                    <a href="#">微博登录</a> &nbsp;&nbsp;&nbsp;&nbsp; 
+                                </div> 
+                                <div class="weibo"> 
+                                    <img src="./images/背景/a_4.jpg">
+                                    <a href="#">支付宝登录</a> 
+                                </div> 
+                            </div> 
+                        </form> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+        <div class="footer"> 
+            <div class="link"> 
+                <a href="#">关于我们</a>
+                <a href="#">合作伙伴</a>
+                <a href="#">联系客服</a>
+                <a href="#">联系我们</a>
+                <a href="#">隐私权政策</a>
+                <a href="#">法律声明</a>
+                <a href="#">知识产权</a>
+                |&nbsp;©CHAGEE, All Rights Reserved
+            </div> 
+         </div> 
+       </div>
+         <script>
+             //数据本地存储常用有两种storage：localstorage(本地) sessionstorage(会话)
+             //这两种storage都是以键值对的方式存储数据：  key value 二维数组
+             //key是唯一的
+             //这两种存储的区别：数据存放的有效期不同   localstorage长期有效  sessiostorage只有一个会话期内有效（一个页面打开到关闭称为会话期）
+             function zhangH() {
+                 var name=document.querySelector("input[type='text']").value
+                 //利用localS对象的setItem(key,value)方法存储数据；getItem()方法读取数据
+                 localStorage.setItem("a",name)
+                 // sessionStorage.setItem("a",name)
+             }
+             function login() {
+                 var x=localStorage.getItem("a")
+                 // var x=sessionStorage.getItem("a")
+                 alert("登录成功！")
+                 window.location.href = "3.index.html"
+             }
+         </script>
+</body>
+</html>
